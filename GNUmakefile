@@ -228,8 +228,8 @@ serve: keybase gh-pages
 .PHONY: singlehtml
 singlehtml: touch-time
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
-	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(GH_USER).github.io
-	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(KB_USER).keybase.pub
+	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(GITHUB_USER).github.io
+	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(KB_USE/R).keybase.pub
 #	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) /keybase/$(KB_PUBLIC)/$(KB_USER)
 #	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) /keybase/public/$(KB_USER)
 #	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) /keybase/private/$(KB_USER)
@@ -275,20 +275,20 @@ push-keybase: touch-time
 gh-pages: touch-time singlehtml
 ifeq ($(public),true)
 	@echo gh-pages
-	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.html ~/$(GH_USER).github.io"
-	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt ~/$(GH_USER).github.io"
-	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.sig ~/$(GH_USER).github.io"
-	bash -c "install -d $(BUILDDIR)/$(KB_USER).keybase.pub/_* ~/$(GH_USER).github.io/_*"
+	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.html ~/$(GITHUB_USER).github.io"
+	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt ~/$(GITHUB_USER).github.io"
+	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.sig ~/$(GITHUB_USER).github.io"
+	bash -c "install -d $(BUILDDIR)/$(KB_USER).keybase.pub/_* ~/$(GITHUB_USER).github.io/_*"
 	make push-keybase
 	make push-gh-pages
-	@echo "Build finished. The HTML page is in ~/$(GH_USER).github.io"
+	@echo "Build finished. The HTML page is in ~/$(GITHUB_USER).github.io"
 endif
 
 .PHONY: push-gh-pages
 .ONESHELL:
 push-gh-pages: touch-time
 ifeq ($(public),true)
-	bash -c "cd ~/$(GH_USER).github.io && \
+	bash -c "cd ~/$(GITHUB_USER).github.io && \
 		git status && \
 		git add -f * && \
 		git commit -m 'update from $(BASENAME) on $(TIME)' && \
