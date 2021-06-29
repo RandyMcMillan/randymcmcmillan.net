@@ -167,7 +167,7 @@ depends: #touch-time
 																	#????
 	#sudo rm -f /usr/bin/python
 	#pip3 install sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme --user blockcypher
-	sudo -H pip3 install --force --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
+	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
 #export PYTHONPATH=$(PYTHONPATH):$(PWD)/$(LIBS)
 	#pip  install sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme --user blockcypher
 	#make depends public=true
