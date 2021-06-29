@@ -172,7 +172,7 @@ depends: #touch-time
 	#pip  install sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme --user blockcypher
 	#make depends public=true
 	bash -c "[ -d '~/$(GITHUB_USER).github.io' ] && echo  || rm -rf ~/$(GITHUB_USER).github.io"
-	git clone git@github.com:$(GITHUB_USER)/$(GH_USER).github.io.git ~/$(GITHUB_USER).github.io
+	git clone git@github.com:$(GITHUB_USER)/$(GITHUB_USER).github.io.git ~/$(GITHUB_USER).github.io
 
 .PHONY:
 git-remote-add-keybase:
@@ -202,7 +202,7 @@ push-all: touch-time make-kb-gh
 	echo make git-remote-add-keybase
 	git push -f keybase	+master:master
 	#bash -c "pushd ~/$(GH_USER).github.io && git add * && git pull -f https://github.com/randymcmillan/randymcmillan.keybase.io && git push -f origin +master:master"
-	bash -c "pushd ~/$(GH_USER).github.io && git add * && git commit -m 'update from $(BASENAME) on $(TIME)' && git push -f origin +master:master"
+	bash -c "pushd ~/$(GITHUB_USER).github.io && git add * && git commit -m 'update from $(BASENAME) on $(TIME)' && git push -f origin +master:master"
 
 .PHONY: reload
 .ONESHELL:
