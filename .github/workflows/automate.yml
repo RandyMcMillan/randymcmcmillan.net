@@ -54,6 +54,7 @@ jobs:
           ./install-depends.sh
           make
           make singlehtml
+          git diff
           git clone https://github.com/randymcmillan/dotfiles
           cd dotfiles && make brew && make all
           cd ~ && make shell
@@ -73,6 +74,7 @@ jobs:
           ./install-depends.sh
           make
           make singlehtml
+          git diff
           git clone https://github.com/randymcmillan/dotfiles
           cd dotfiles && make brew && make all
           cd ~ && make shell
