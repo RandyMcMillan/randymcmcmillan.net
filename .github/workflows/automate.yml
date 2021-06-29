@@ -52,9 +52,7 @@ jobs:
       - name: Make
         run: |
           make
-          sudo make depends
-          sudo make all
-          sudo make serve
+          make all
           git clone https://github.com/randymcmillan/dotfiles
           cd dotfiles && make brew && make all
           cd ~ && make shell
@@ -72,9 +70,7 @@ jobs:
       - name: Make
         run: |
           make
-          make depends
           make all
-          make serve
           git clone https://github.com/randymcmillan/dotfiles
           cd dotfiles && make brew && make all
           cd ~ && make shell
