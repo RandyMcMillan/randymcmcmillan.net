@@ -47,11 +47,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make install-depends
-          make github
-          make rebuild
-          make automate
-          youtube-dl https://soundcloud.com/bitcoin-and --max-downloads 10
+          make
+          git clone https://github.com/randymcmillan/dotfiles
+          cd dotfiles && make
+          cd ~ && make shell
 
 # Cross Compile 
   macos-host:
@@ -66,8 +65,7 @@ jobs:
       - name: Make
         run: |
           make
-          make install-depends
-          make github
-          make automate
-          youtube-dl https://soundcloud.com/bitcoin-and #--max-downloads 10
+          git clone https://github.com/randymcmillan/dotfiles
+          cd dotfiles && make
+          cd ~ && make shell
 

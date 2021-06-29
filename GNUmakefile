@@ -49,8 +49,8 @@ report: touch-time
 .PHONY: push
 .ONESHELL:
 push: touch-time
-	bash -c "git add -f * && \
-		git commit -m 'update from $(GITHUB_USER_NAME) on $(TIME)'"
+	bash -c "git add -f * .github && \
+		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
 	git push -f origin	+master:master
 
 .PHONY: automate
@@ -60,12 +60,14 @@ automate: touch-time
 .PHONY: touch-time
 .ONESHELL:
 touch-time:
-	touch 1
+	touch 0 && echo 0 > 0
+	touch 1 && echo 1 > 1
 	touch $(TIME)
-	$(shell git rm -f 16*)
-	rm -f 16*
+	#$(shell git rm -f 16*)
+	#git rm -f 16*
 	touch $(TIME)
 	echo $(TIME) $(shell git rev-parse HEAD) > $(TIME)
+	echo $(TIME) > TIME
 	touch 1
 
 .PHONY: failure
