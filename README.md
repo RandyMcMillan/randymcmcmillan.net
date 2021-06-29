@@ -9,7 +9,6 @@ TOKEN=$(~/GH_TOKEN); export TOKEN && curl -I https://api.github.com -u $(GIT_USE
 </p>
 </details>	
 ----	
-
 <details>
 <summary>👀</summary>
 <p>
