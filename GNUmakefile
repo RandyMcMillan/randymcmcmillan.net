@@ -62,7 +62,7 @@ report:
 
 .PHONY: push
 .ONESHELL:
-push: touch-time docs
+push: docs touch-time
 	bash -c "git add -f * .github && \
 		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
 	git push -f origin	+master:master
