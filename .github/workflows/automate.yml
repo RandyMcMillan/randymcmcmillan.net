@@ -30,7 +30,7 @@ jobs:
       - name: Print github workspace
         run: |
           git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make
+          cd dotfiles && make brew && make all
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "github.workspace = ${{ github.workspace }}"
           echo "pr.ref = ${{github.event.pull_request.head.ref}}"
@@ -53,7 +53,7 @@ jobs:
         run: |
           make
           git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make
+          cd dotfiles && make brew && make all
           cd ~ && make shell
 
 # Cross Compile 
@@ -70,6 +70,6 @@ jobs:
         run: |
           make
           git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make
+          cd dotfiles && make brew && make all
           cd ~ && make shell
 
