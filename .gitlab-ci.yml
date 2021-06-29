@@ -1,0 +1,48 @@
+variables:
+  CI_DISPOSABLE_ENVIRONMENT: "true"
+
+image: google/cloud-sdk:slim
+stages:
+  - deploy
+
+before_script:
+  - TMPF=$(mktemp) || exit 1
+  - echo $GCLOUD_KEY > $TMPF
+  - export GOOGLE_APPLICATION_CREDENTIALS=$TMPF
+  - gcloud auth activate-service-account --key-file=$TMPF
+  - gcloud auth list
+  - gcloud --version
+  - pip3 install sphinx sphinx_rtd_theme
+
+deploy_preview:
+  only:
+    - branches@blockstream/docs
+  except:
+    - master@blockstream/docs
+  stage: deploy
+  environment:
+    name: preview
+    url: https://docs.blockstream.com/preview/${CI_BUILD_REF}/
+  script:
+    - sphinx-build -b html -d _build/doctrees . _build/html || { echo "Something broke. Sleeping for an hour to debug"; sleep 3600; exit 1; }
+    - gsutil -m rsync -r -d _build/html gs://docs.blockstream.com/preview/${CI_BUILD_REF}
+
+deploy:
+  only:
+    - master@blockstream/docs
+  stage: deploy
+  when: manual
+  script:
+    - sphinx-build -b html -d _build/doctrees . _build/html || { echo "Something broke. Sleeping for an hour to debug"; sleep 3600; exit 1; }
+    - gsutil -m rsync -r -d _build/html gs://docs.blockstream.com
+
+cleanup_preview:
+  only:
+    - branches@blockstream/docs
+  except:
+    - master@blockstream/docs
+  stage: deploy
+  when: manual
+  script:
+    - echo "Cleanup preview"
+    - gsutil -m rm -r gs://docs.blockstream.com/preview/*
