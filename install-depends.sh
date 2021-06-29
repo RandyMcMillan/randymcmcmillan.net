@@ -28,6 +28,7 @@ checkbrew() {
         brew install awk git
         brew install --cask keybase
         brew install python
+        pip install -U sphinx
         brew install sphinx-doc
         brew link --force sphinx-doc
         echo
