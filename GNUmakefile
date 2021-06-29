@@ -195,7 +195,7 @@ make-kb-gh: touch-time singlehtml keybase gh-pages
 .PHONY: push-all
 .ONESHELL:
 push-all: touch-time make-kb-gh
-	bash -c "git add _build _static * && \
+	bash -c "git add -f _build _static * && \
 		git commit -m 'update from $(BASENAME) on $(TIME)'"
 	git push -f origin	+master:master
 	echo if error run 
