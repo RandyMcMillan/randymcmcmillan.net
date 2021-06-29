@@ -1,5 +1,19 @@
-TIME := $(shell date +%s)
+
+SHELL                                   := /bin/bash
+
+PWD 									?= pwd_unknown
+
+TIME 									:= $(shell date +%s)
 export TIME
+
+# PROJECT_NAME defaults to name of the current directory.
+ifeq ($(project),)
+PROJECT_NAME							:= $(notdir $(PWD))
+else
+PROJECT_NAME							:= $(project)
+endif
+export PROJECT_NAME
+
 #GIT CONFIG
 GIT_USER_NAME							:= $(shell git config user.name)
 export GIT_USER_NAME
@@ -7,7 +21,7 @@ GIT_USER_EMAIL							:= $(shell git config user.email)
 export GIT_USER_EMAIL
 GIT_SERVER								:= https://github.com
 export GIT_SERVER
-GIT_PROFILE								:= bitcoincore-dev
+GIT_PROFILE								:= $(shell git config user.name)
 export GIT_PROFILE
 GIT_BRANCH								:= $(shell git rev-parse --abbrev-ref HEAD)
 export GIT_BRANCH
@@ -29,7 +43,7 @@ help: report
 	@echo ""
 
 .PHONY: report
-report: touch-time
+report: 
 	@echo ''
 	@echo '	[ARGUMENTS]	'
 	@echo '      args:'
@@ -69,6 +83,16 @@ touch-time:
 	echo $(TIME) $(shell git rev-parse HEAD) > $(TIME)
 	echo $(TIME) > TIME
 	touch 1
+
+.PHONY: docs
+docs:
+	@echo 'docs'
+	bash -c "if pgrep MacDown; then pkill MacDown; fi"
+	bash -c 'cat $(PWD)/HEADER.md				 >  $(PWD)/README.md'
+	bash -c 'cat $(PWD)/COMMANDS.md				 >> $(PWD)/README.md'
+	bash -c 'cat $(PWD)/FOOTER.md				 >> $(PWD)/README.md'
+	bash -c "if hash open 2>/dev/null; then open README.md; fi || echo failed to open README.md"
+
 
 .PHONY: failure
 failure: touch-time
