@@ -1,5 +1,3 @@
-	
-----	
 
 <details>
 <summary>👀</summary>
