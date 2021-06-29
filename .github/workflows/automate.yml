@@ -51,6 +51,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          ./install-depends.sh
           make
           make all
           git clone https://github.com/randymcmillan/dotfiles
@@ -69,6 +70,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          ./install-depends.sh
           make
           make all
           git clone https://github.com/randymcmillan/dotfiles
