@@ -138,10 +138,11 @@ push: docs touch-time
 .PHONY: branch
 .ONESHELL:
 branch: docs touch-time
-	bash -c "git add -f * .github && \
+	bash -c "git checkout -b $(TIME) && \
+		git add -f * .github && \
 		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
-		git branch $(TIME)
-		git push -f --all
+		git push -f origin $(TIME):$(TIME)
+		git checkout master
 
 .PHONY: automate
 automate: touch-time
