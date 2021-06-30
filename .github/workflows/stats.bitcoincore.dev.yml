@@ -29,19 +29,19 @@ jobs:
           cd stats.bitcoincore.dev
           make init help header run user=root
 
-  macos-10-docker:
-    runs-on: macos-10.15
-    steps:
-      ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
-      - uses: styfle/cancel-workflow-action@0.8.0
-        with:
-          access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - name: Make
-        run: |
-          git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
-          cd stats.bitcoincore.dev
-          make init help header run user=root
+          #  macos-10-docker:
+          #    runs-on: macos-10.15
+          #    steps:
+          #      ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
+          #      - uses: styfle/cancel-workflow-action@0.8.0
+          #        with:
+          #          access_token: ${{ github.token }}
+          #      - uses: actions/checkout@v2
+          #      - name: Make
+          #        run: |
+          #          git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
+          #          cd stats.bitcoincore.dev
+          #          make init help header run user=root
 
 # Cross Compile 
   uibuntu-18-host:
@@ -65,24 +65,24 @@ jobs:
           make
           make install
 
-  macos-10-host:
-    runs-on: macos-10.15
-    steps:
-      ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
-      - uses: styfle/cancel-workflow-action@0.8.0
-        with:
-          access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - name: Make
-        run: |
-          git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
-          cd stats.bitcoincore.dev
-          .github/workflows/./install-bitcoin-libs.sh
-          sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
-          sudo apt install g++-arm-linux-gnueabihf curl
-          make -C depends HOST=arm-linux-gnueabihf NO_QT=1
-          ./autogen.sh
-          ./configure --disable-wallet --disable-tests --disable-bench --disable-docs --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
-          make
-          make install
+          #  macos-10-host:
+          #    runs-on: macos-10.15
+          #    steps:
+          #      ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
+          #      - uses: styfle/cancel-workflow-action@0.8.0
+          #        with:
+          #          access_token: ${{ github.token }}
+          #      - uses: actions/checkout@v2
+          #      - name: Make
+          #        run: |
+          #          git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
+          #          cd stats.bitcoincore.dev
+          #          .github/workflows/./install-bitcoin-libs.sh
+          #          sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
+          #          sudo apt install g++-arm-linux-gnueabihf curl
+          #          make -C depends HOST=arm-linux-gnueabihf NO_QT=1
+          #          ./autogen.sh
+          #          ./configure --disable-wallet --disable-tests --disable-bench --disable-docs --prefix=$PWD/depends/arm-linux-gnueabihf --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++
+          #          make
+          #          make install
 
