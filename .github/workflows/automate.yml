@@ -68,7 +68,7 @@ jobs:
         run: |
           make docs
           sudo apt install markdown
-          markdown README.md -b https://randymcmillan.github.io/randymcmillan > index.html
+          pandoc --quiet README.md -s -o index.html
           cat index.html
           git diff
 
