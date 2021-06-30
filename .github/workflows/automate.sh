@@ -28,9 +28,9 @@ checkbrew() {
         if !hash git 2>/dev/null; then
             brew install git
         fi
-        if !hash pandoc 2>/dev/null; then
+        #if !hash pandoc 2>/dev/null; then
             brew install pandoc
-        fi
+        #fi
         #pip install -U sphinx
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
