@@ -72,10 +72,10 @@ jobs:
       - name: Make
         run: |
           ./install-depends.sh
-          make
-          make singlehtml
-          git diff
-          git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make brew && make all
+          #make
+          #make singlehtml
+          #git diff
+          #git clone https://github.com/randymcmillan/dotfiles
+          #cd dotfiles && make brew && make all
           #cd ~ && make shell
 
