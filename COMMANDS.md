@@ -1,7 +1,12 @@
 <AUTOMATION>
 <p>
+
 ### AUTOMATION
+<CENTER>
+
  [![automate](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml) [![global-statoshi-host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
+</CENTER>
+
 </p>
 </AUTOMATION>
 
