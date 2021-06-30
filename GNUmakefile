@@ -135,6 +135,13 @@ push: docs touch-time
 		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
 	git push -f origin	+master:master
 
+.PHONY: branch
+.ONESHELL:
+branch: docs touch-time
+	bash -c "git add -f * .github && \
+		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
+	git push -f origin	+$(TIME):$(TIME)
+
 .PHONY: automate
 automate: touch-time
 	./.github/workflows/automate.sh
