@@ -40,7 +40,7 @@ jobs:
 
 
 # Cross Compile 
-  u18-host:
+  ubuntu-18-host:
     runs-on: ubuntu-18.04
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
@@ -60,7 +60,7 @@ jobs:
           #cd ~ && make shell
 
 # Cross Compile 
-  macos-host:
+  macos-10-host:
     runs-on: macos-10.15
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
