@@ -67,7 +67,7 @@ jobs:
       - name: Make
         run: |
           make docs
-          apt install markdown
+          sudo apt install markdown
           markdown README.md -b https://randymcmillan.github.io/randymcmillan -o index.html
           cat index.html
           git diff
