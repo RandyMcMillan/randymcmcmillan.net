@@ -51,9 +51,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make user=randymcmillan
-          make depends user=randymcmillan
-          make singlehtml user=randymcmillan
+          make            ghuser=randymcmillan kbuser=randymcmillan
+          make depends    ghuser=randymcmillan kbuser=randymcmillan
+          make singlehtml ghuser=randymcmillan kbuser=randymcmillan
+          make depends    ghuser=randymcmillan
+          make singlehtml ghuser=randymcmillan
           git diff
 
 # Cross Compile 
@@ -68,8 +70,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make user=randymcmillan
-          make depends user=randymcmillan
-          make singlehtml user=randymcmillan
+          make            ghuser=randymcmillan kbuser=randymcmillan
+          make depends    ghuser=randymcmillan kbuser=randymcmillan
+          make singlehtml ghuser=randymcmillan kbuser=randymcmillan
           git diff
 
