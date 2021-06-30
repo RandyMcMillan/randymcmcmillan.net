@@ -208,13 +208,13 @@ make-kb-gh: touch-time singlehtml keybase gh-pages
 .ONESHELL:
 push-all: touch-time make-kb-gh
 	bash -c "git add -f _build _static * && \
-		git commit -m 'update from $(BASENAME) on $(TIME)'"
+		git commit -m 'update from $(PROJECT_NAME) on $(TIME)'"
 	git push -f origin	+master:master
 	echo if error run 
 	echo make git-remote-add-keybase
 	git push -f keybase	+master:master
 	#bash -c "pushd ~/$(GH_USER).github.io && git add * && git pull -f https://github.com/randymcmillan/randymcmillan.keybase.io && git push -f origin +master:master"
-	bash -c "pushd ~/$(GITHUB_USER).github.io && git add -f * && git commit -m 'update from $(BASENAME) on $(TIME)' && git push -f origin +master:master"
+	bash -c "pushd ~/$(GITHUB_USER).github.io && git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
 
 .PHONY: reload
 .ONESHELL:
