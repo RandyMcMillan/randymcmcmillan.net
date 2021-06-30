@@ -2,10 +2,7 @@
 ----
 
 ## [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) AWESOME GITOPS
-
-### Automation
-
-[![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)<AUTOMATION>
+<AUTOMATION>
 <p>
 ### AUTOMATION
  [![automate](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml) [![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
