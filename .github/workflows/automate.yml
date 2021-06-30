@@ -39,7 +39,7 @@ jobs:
           printenv
 
 # Cross Compile 
-  ubuntu-18-host:
+  run-automate-sh:
     runs-on: ubuntu-18.04
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
