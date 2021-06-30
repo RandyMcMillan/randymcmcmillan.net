@@ -38,7 +38,6 @@ jobs:
           echo "$GITHUB_CONTEXT"
           printenv
 
-
 # Cross Compile 
   ubuntu-18-host:
     runs-on: ubuntu-18.04
@@ -51,9 +50,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make            ghuser=randymcmillan kbuser=randymcmillan
-          make depends    ghuser=randymcmillan kbuser=randymcmillan
-          make singlehtml ghuser=randymcmillan kbuser=randymcmillan
+          make docs
           git diff
 
 # Cross Compile 
@@ -68,8 +65,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make            ghuser=randymcmillan kbuser=randymcmillan
-          make depends    ghuser=randymcmillan kbuser=randymcmillan
-          make singlehtml ghuser=randymcmillan kbuser=randymcmillan
+          make docs
           git diff
 
