@@ -72,7 +72,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
             echo 'Using apt...'
             #curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
             #sudo apt install ./keybase_amd64.deb
-            pip install blockcypher
+            pip install blockcypher setuptools
             sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio keybase
             run_keybase
         fi
@@ -95,7 +95,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
         fi
     fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    pip install blockcypher
+    pip install blockcypher setuptools
     checkbrew
 elif [[ "$OSTYPE" == "cygwin" ]]; then
     echo TODO add support for $OSTYPE
