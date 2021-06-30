@@ -1,9 +1,10 @@
 <AUTOMATION>
 <p>
 ### AUTOMATION
-[![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
+ [![automate](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml) [![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
 </p>
 </AUTOMATION>
+
 
 <details>
 <summary>COMMANDS</summary>
