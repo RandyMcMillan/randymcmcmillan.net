@@ -2,6 +2,16 @@
 ----
 
 ## [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome) AWESOME GITOPS
+
+### Automation
+
+[![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)<AUTOMATION>
+<p>
+### AUTOMATION
+[![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
+</p>
+</AUTOMATION>
+
 <details>
 <summary>COMMANDS</summary>
 
@@ -10,6 +20,9 @@ TOKEN=$(~/GH_TOKEN); export TOKEN && curl -I https://api.github.com -u $(GIT_USE
 ```
 </p>
 </details>
+
+
+
 <details>
 <summary>👀</summary>
 <p>
