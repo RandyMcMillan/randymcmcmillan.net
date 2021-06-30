@@ -25,7 +25,7 @@ import time
 millis = int(round(time.time() * 1000))
 seconds = int(round(time.time()))
 
-import subprocess
+# import subprocess
 import blockcypher
 
 try:
