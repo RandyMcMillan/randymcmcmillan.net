@@ -214,6 +214,7 @@ push-all: touch-time make-kb-gh
 	echo make git-remote-add-keybase
 	git push -f keybase	+master:master
 	#bash -c "pushd ~/$(GH_USER).github.io && git add * && git pull -f https://github.com/randymcmillan/randymcmillan.keybase.io && git push -f origin +master:master"
+	bash -c "pushd ~/$(KB_USER).keybase.io && git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
 	bash -c "pushd ~/$(GITHUB_USER).github.io && git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
 
 .PHONY: reload
