@@ -13,11 +13,21 @@ export PROJECT_NAME
 #GIT CONFIG
 GIT_USER_NAME							:= $(shell git config user.name)
 export GIT_USER_NAME
-
-#May be different
-GH_USER_REPO    						:= $(shell git config user.name).github.io
+GH_USER_NAME							:= $(shell git config user.name)
+#MIRRORS
+GH_USER_REPO    						:= $(GH_USER_NAME).github.io
+KB_USER_REPO   	        				:= $(GH_USER_NAME).keybase.pub
+#GITHUB RUNNER CONFIGS
+ifneq ($(ghuser),)
+GH_USER_NAME := $(ghuser)
+GH_USER_REPO := $(ghuser).github.io
+endif
+ifneq ($(kbuser),)
+KB_USER_NAME := $(kbuser)
+KB_USER_REPO := $(kbuser).keybase.pub
+endif
+export GIT_USER_NAME
 export GH_USER_REPO
-KB_USER_REPO   	        				:= $(shell git config user.name).keybase.pub
 export KB_USER_REPO
 
 GIT_USER_EMAIL							:= $(shell git config user.email)
@@ -40,19 +50,6 @@ GIT_REPO_NAME							:= $(PROJECT_NAME)
 export GIT_REPO_NAME
 GIT_REPO_PATH							:= $(HOME)/$(GIT_REPO_NAME)
 export GIT_REPO_PATH
-
-#GITHUB RUNNER CONFIGS
-ifneq ($(kbuser),)
-# My default change to your keybase user name
-KB_USER_REPO := $(kbuser).keybase.pub
-endif
-export KB_USER_REPO
-
-ifneq ($(ghuser),)
-# My default change to your keybase user name
-GH_USER_REPO := $(ghuser).github.io
-endif
-export GH_USER_REPO
 
 BASENAME := $(shell basename -s .git `git config --get remote.origin.url`)
 export BASENAME
@@ -214,9 +211,9 @@ push-all: touch-time make-kb-gh
 	git push -f keybase	+master:master
 	#bash -c "pushd ~/$(GH_USER).github.io && git add * && git pull -f https://github.com/randymcmillan/randymcmillan.keybase.io && git push -f origin +master:master"
 	install -v * ~/$(KB_USER).keybase.io
-	install -v * ~/$(GITHUB_USER).github.io
-	bash -c "pushd ~/$(KB_USER).keybase.io && git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
-	bash -c "pushd ~/$(GITHUB_USER).github.io && git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
+	install -v * ~/$(GH_USER_NAME).github.io
+	bash -c "pushd ~/$(KB_USER_NAME).keybase.io && git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
+	bash -c "pushd ~/$(GH_USER_NAME).github.io &&  git add -f * && git commit -m 'update from $(PROJECT_NAME) on $(TIME)' && git push -f origin +master:master"
 
 .PHONY: reload
 .ONESHELL:
@@ -242,8 +239,8 @@ serve: keybase gh-pages
 .PHONY: singlehtml
 singlehtml: touch-time
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
-	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(GITHUB_USER).github.io
-	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(KB_USE/R).keybase.pub
+	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(GH_USER_NAME).github.io
+	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/$(KB_USER_NAME).keybase.pub
 #	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) /keybase/$(KB_PUBLIC)/$(KB_USER)
 #	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) /keybase/public/$(KB_USER)
 #	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) /keybase/private/$(KB_USER)
@@ -259,21 +256,21 @@ keybase: touch-time singlehtml
 	@echo if error ensure these files exist...
 	@echo	
 	bash -c "keybase sign -i			keybase.txt -o keybase.txt.sig"
-	bash -c "install -v					keybase.txt     $(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt"
-	bash -c "install -v					keybase.txt.sig $(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt.sig"
-	bash -c "keybase sign -i			$(BUILDDIR)/$(KB_USER).keybase.pub/index.html -o  $(BUILDDIR)/$(KB_USER).keybase.pub/index.html.sig"
-	bash -c "install -v					$(BUILDDIR)/$(KB_USER).keybase.pub/index.html      /keybase/$(KB_PUBLIC)/$(KB_USER)/index.html"
-	bash -c "install -v					$(BUILDDIR)/$(KB_USER).keybase.pub/index.html.sig  /keybase/$(KB_PUBLIC)/$(KB_USER)/index.html.sig"
-	bash -c "install -v					$(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt     /keybase/$(KB_PUBLIC)/$(KB_USER)/keybase.txt"
-	bash -c "install -v					$(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt.sig /keybase/$(KB_PUBLIC)/$(KB_USER)/keybase.txt.sig"
+	bash -c "install -v					keybase.txt     $(BUILDDIR)/$(KB_USER_NAME).keybase.pub/keybase.txt"
+	bash -c "install -v					keybase.txt.sig $(BUILDDIR)/$(KB_USER_NAME).keybase.pub/keybase.txt.sig"
+	bash -c "keybase sign -i			$(BUILDDIR)/$(KB_USER_NAME).keybase.pub/index.html -o  $(BUILDDIR)/$(KB_USER).keybase.pub/index.html.sig"
+	bash -c "install -v					$(BUILDDIR)/$(KB_USER_NAME).keybase.pub/index.html      /keybase/$(KB_PUBLIC)/$(KB_USER_NAME)/index.html"
+	bash -c "install -v					$(BUILDDIR)/$(KB_USER_NAME).keybase.pub/index.html.sig  /keybase/$(KB_PUBLIC)/$(KB_USER_NAME)/index.html.sig"
+	bash -c "install -v					$(BUILDDIR)/$(KB_USER_NAME).keybase.pub/keybase.txt     /keybase/$(KB_PUBLIC)/$(KB_USER_NAME)/keybase.txt"
+	bash -c "install -v					$(BUILDDIR)/$(KB_USER_NAME).keybase.pub/keybase.txt.sig /keybase/$(KB_PUBLIC)/$(KB_USER_NAME)/keybase.txt.sig"
 	bash -c "touch $(TIME)"
 	@echo	
 	bash -c "git status"
 	make push-keybase
-	@echo "Build finished. The HTML page is in $(BUILDDIR)/$(KB_USER).keybase.pub"
-	@echo "Build finished. The HTML page is in /keybase/$(KB_PUBLIC)/$(KB_USER).keybase.pub"
+	@echo "Build finished. The HTML page is in $(BUILDDIR)/$(KB_USER_NAME).keybase.pub"
+	@echo "Build finished. The HTML page is in /keybase/$(KB_PUBLIC)/$(KB_USER_NAME).keybase.pub"
 ifneq ($(public),true)
-	@echo "make keybase public=true #will push to the your /keybase/public/$(KB_USER).keybase.pub"
+	@echo "make keybase public=true #will push to the your /keybase/public/$(KB_USER_NAME).keybase.pub"
 endif
 
 .PHONY: push-keybase
@@ -289,20 +286,20 @@ push-keybase: touch-time
 gh-pages: touch-time singlehtml
 ifeq ($(public),true)
 	@echo gh-pages
-	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.html ~/$(GITHUB_USER).github.io"
-	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt ~/$(GITHUB_USER).github.io"
-	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.sig ~/$(GITHUB_USER).github.io"
-	bash -c "install -d $(BUILDDIR)/$(KB_USER).keybase.pub/_* ~/$(GITHUB_USER).github.io/_*"
+	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.html ~/$(GH_USER_NAME).github.io"
+	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/keybase.txt ~/$(GH_USER_NAME).github.io"
+	bash -c "install -v $(BUILDDIR)/$(KB_USER).keybase.pub/*.sig ~/$(GH_USER_NAME).github.io"
+	bash -c "install -d $(BUILDDIR)/$(KB_USER).keybase.pub/_* ~/$(GH_USER_NAME).github.io/_*"
 	make push-keybase
 	make push-gh-pages
-	@echo "Build finished. The HTML page is in ~/$(GITHUB_USER).github.io"
+	@echo "Build finished. The HTML page is in ~/$(GH_USER_NAME).github.io"
 endif
 
 .PHONY: push-gh-pages
 .ONESHELL:
 push-gh-pages: touch-time
 ifeq ($(public),true)
-	bash -c "cd ~/$(GITHUB_USER).github.io && \
+	bash -c "cd ~/$(GH_USER_NAME).github.io && \
 		git status && \
 		git add -f * && \
 		git commit -m 'update from $(BASENAME) on $(TIME)' && \
