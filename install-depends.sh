@@ -74,7 +74,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
             sudo apt install ./keybase_amd64.deb
             run_keybase
             sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-application python-setuptools #keybase
-            pip3 install blockcypher twitterscraper
+            pip install blockcypher twitterscraper
         fi
     fi
     if [[ "$OSTYPE" == "linux-musl" ]]; then
