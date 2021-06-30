@@ -70,11 +70,11 @@ if [[ "$OSTYPE" == "linux"* ]]; then
             apt install awk
             report
             echo 'Using apt...'
-            #curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
-            #sudo apt install ./keybase_amd64.deb
-            pip install blockcypher setuptools
-            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio keybase
+            curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+            sudo apt install ./keybase_amd64.deb
             run_keybase
+            pip install blockcypher setuptools
+            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio #keybase
         fi
     fi
     if [[ "$OSTYPE" == "linux-musl" ]]; then
