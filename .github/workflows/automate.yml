@@ -29,8 +29,8 @@ jobs:
     steps:
       - name: Print github workspace
         run: |
-          git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make brew && make all
+          git clone https://github.com/randymcmillan/dotfiles ~/dotfiles
+          cd ~/dotfiles && make brew && sudo make all
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "github.workspace = ${{ github.workspace }}"
           echo "pr.ref = ${{github.event.pull_request.head.ref}}"
@@ -40,7 +40,7 @@ jobs:
 
 
 # Cross Compile 
-  u18-host:
+  ubuntu-18-host:
     runs-on: ubuntu-18.04
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
@@ -51,13 +51,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make
-          git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make brew && make all
-          cd ~ && make shell
+          make            ghuser=randymcmillan kbuser=randymcmillan
+          make depends    ghuser=randymcmillan kbuser=randymcmillan
+          make singlehtml ghuser=randymcmillan kbuser=randymcmillan
+          git diff
 
 # Cross Compile 
-  macos-host:
+  macos-10-host:
     runs-on: macos-10.15
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
@@ -68,8 +68,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
-          make
-          git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make brew && make all
-          cd ~ && make shell
+          make            ghuser=randymcmillan kbuser=randymcmillan
+          make depends    ghuser=randymcmillan kbuser=randymcmillan
+          make singlehtml ghuser=randymcmillan kbuser=randymcmillan
+          git diff
 
