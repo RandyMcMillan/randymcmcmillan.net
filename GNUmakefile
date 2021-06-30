@@ -17,6 +17,13 @@ export PROJECT_NAME
 #GIT CONFIG
 GIT_USER_NAME							:= $(shell git config user.name)
 export GIT_USER_NAME
+
+#May be different
+GH_USER_REPO    						:= $(shell git config user.name).github.io
+export GH_USER_REPO
+KB_USER_REPO   	        				:= $(shell git config user.name).keybase.pub
+export KB_USER_REPO
+
 GIT_USER_EMAIL							:= $(shell git config user.email)
 export GIT_USER_EMAIL
 GIT_SERVER								:= https://github.com
@@ -67,6 +74,8 @@ report:
 	@echo '        - TIME=${TIME}'
 	@echo '        - PROJECT_NAME=${PROJECT_NAME}'
 	@echo '        - GIT_USER_NAME=${GIT_USER_NAME}'
+	@echo '        - GH_USER_REPO=${GH_USER_REPO}'
+	@echo '        - KB_USER_REPO=${KB_USER_REPO}'
 	@echo '        - GIT_USER_EMAIL=${GIT_USER_EMAIL}'
 	@echo '        - GIT_SERVER=${GIT_SERVER}'
 	@echo '        - GIT_PROFILE=${GIT_PROFILE}'
@@ -152,7 +161,7 @@ endif
 export KB_PUBLIC
 
 ifeq ($(libs),)
-LIBS  := $(PWD)/libs
+LIBS  := ./libs
 else
 LIBS  := $(libs)
 endif
@@ -174,11 +183,13 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: depends
 depends: #touch-time
-																	#????
-	bash -c "[ -d '~/$(KB_USER).keybase.pub' ] && echo  || rm -rf ~/$(KB_USER).keybase.pub"
-	git clone git@github.com:$(GITHUB_USER)/$(KB_USER).keybase.pub.git ~/$(KB_USER).keybase.pub
-	bash -c "[ -d '~/$(GITHUB_USER).github.io' ] && echo  || rm -rf ~/$(GITHUB_USER).github.io"
-	git clone git@github.com:$(GITHUB_USER)/$(GITHUB_USER).github.io.git ~/$(GITHUB_USER).github.io
+	
+	bash -c "[ -d '~/$(KB_USER_REPO)' ] && echo  || rm -rf ~/$(KB_USER_REPO)"
+	bash -c "git clone git@github.com:$(GIT_USER_NAME)/$(KB_USER_REPO) ~/$(KB_USER_REPO)"
+	
+	bash -c "[ -d '~/$(GH_USER_REPO)' ] && echo  || rm -rf ~/$(GH_USER_REPO)"
+	bash -c "git clone git@github.com:$(GIT_USER_NAME)/$(GH_USER_REPO) ~/$(GH_USER_REPO)"
+
 	./install-depends.sh
 	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
 
