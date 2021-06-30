@@ -76,6 +76,6 @@ jobs:
           make singlehtml
           git diff
           git clone https://github.com/randymcmillan/dotfiles
-          cd dotfiles && make brew && sudo make all
+          cd dotfiles && make brew && make all
           #cd ~ && make shell
 
