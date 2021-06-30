@@ -1,0 +1,3 @@
+[console_scripts]
+sphinx-reload = sphinx_reload:main
+

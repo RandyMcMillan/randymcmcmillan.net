@@ -1,12 +1,8 @@
-
 SHELL                                   := /bin/bash
-
 PWD 									?= pwd_unknown
-
 TIME 									:= $(shell date +%s)
 export TIME
 
-# PROJECT_NAME defaults to name of the current directory.
 ifeq ($(project),)
 PROJECT_NAME							:= $(notdir $(PWD))
 else
@@ -28,6 +24,8 @@ GIT_USER_EMAIL							:= $(shell git config user.email)
 export GIT_USER_EMAIL
 GIT_SERVER								:= https://github.com
 export GIT_SERVER
+GIT_SSH_SERVER							:= git@github.com
+export GIT_SSH_SERVER
 GIT_PROFILE								:= $(shell git config user.name)
 export GIT_PROFILE
 GIT_BRANCH								:= $(shell git rev-parse --abbrev-ref HEAD)
@@ -42,6 +40,52 @@ GIT_REPO_NAME							:= $(PROJECT_NAME)
 export GIT_REPO_NAME
 GIT_REPO_PATH							:= $(HOME)/$(GIT_REPO_NAME)
 export GIT_REPO_PATH
+
+#GITHUB RUNNER CONFIGS
+ifneq ($(kbuser),)
+# My default change to your keybase user name
+KB_USER_REPO := $(kbuser).keybase.pub
+endif
+export KB_USER_REPO
+
+ifneq ($(ghuser),)
+# My default change to your keybase user name
+GITHUB_USER := $(ghuser).github.io
+endif
+export GITHUB_USER
+
+BASENAME := $(shell basename -s .git `git config --get remote.origin.url`)
+export BASENAME
+
+# Force the user to explicitly select public - public=true
+# export KB_PUBLIC=public && make keybase-public
+ifeq ($(public),true)
+KB_PUBLIC  := public
+else
+KB_PUBLIC  := private
+endif
+export KB_PUBLIC
+
+ifeq ($(libs),)
+LIBS  := ./libs
+else
+LIBS  := $(libs)
+endif
+export LIBS
+
+SPHINXOPTS            =
+SPHINXBUILD           = sphinx-build
+PAPER                 =
+BUILDDIR              = _build
+PRIVATE_BUILDDIR      = _private_build
+
+# Internal variables.
+PAPEROPT_a4           = -D latex_paper_size=a4
+PAPEROPT_letter       = -D latex_paper_size=letter
+ALLSPHINXOPTS         = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+PRIVATE_ALLSPHINXOPTS = -d $(PRIVATE_BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+# the i18n builder cannot share the environment and doctrees with the others
+I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: help
 help: report
@@ -128,58 +172,6 @@ docs:
 	bash -c 'cat $(PWD)/COMMANDS.md              >> $(PWD)/README.md'
 	bash -c 'cat $(PWD)/FOOTER.md                >> $(PWD)/README.md'
 	bash -c "if hash open 2>/dev/null; then open README.md; fi || echo failed to open README.md"
-
-TIME := $(shell date +%s)
-export TIME
-
-BASENAME := $(shell basename -s .git `git config --get remote.origin.url`)
-export BASENAME
-
-ifeq ($(kbuser),)
-# My default change to your keybase user name
-KB_USER := randymcmillan
-else
-KB_USER = $(kbuser)
-endif
-export KB_USER
-
-ifeq ($(ghuser),)
-# My default change to your keybase user name
-GITHUB_USER := randymcmillan
-else
-GITHUB_USER = $(ghuser)
-endif
-export GITHUB_USER
-
-# Force the user to explicitly select public - public=true
-# export KB_PUBLIC=public && make keybase-public
-ifeq ($(public),true)
-KB_PUBLIC  := public
-else
-KB_PUBLIC  := private
-endif
-export KB_PUBLIC
-
-ifeq ($(libs),)
-LIBS  := ./libs
-else
-LIBS  := $(libs)
-endif
-export LIBS
-
-SPHINXOPTS            =
-SPHINXBUILD           = sphinx-build
-PAPER                 =
-BUILDDIR              = _build
-PRIVATE_BUILDDIR      = _private_build
-
-# Internal variables.
-PAPEROPT_a4           = -D latex_paper_size=a4
-PAPEROPT_letter       = -D latex_paper_size=letter
-ALLSPHINXOPTS         = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-PRIVATE_ALLSPHINXOPTS = -d $(PRIVATE_BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-# the i18n builder cannot share the environment and doctrees with the others
-I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: depends
 depends: #touch-time
