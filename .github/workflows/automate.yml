@@ -29,7 +29,6 @@ jobs:
     steps:
       - name: Print github workspace
         run: |
-          make depends
           git clone https://github.com/randymcmillan/dotfiles ~/dotfiles
           cd ~/dotfiles && make brew && sudo make all
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
