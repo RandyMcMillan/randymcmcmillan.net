@@ -132,14 +132,14 @@ report:
 .ONESHELL:
 push: docs touch-time
 	bash -c "git add -f * .github && \
-		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
+		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
 	git push -f origin	+master:master
 
 .PHONY: branch
 .ONESHELL:
 branch: docs touch-time
 	bash -c "git add -f * .github && \
-		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
+		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
 		git branch $(TIME)
 		git push -f --all
 
@@ -147,7 +147,7 @@ branch: docs touch-time
 .ONESHELL:
 global-branch: docs touch-global
 	bash -c "git add -f * .github && \
-		git commit -m 'update from $(GIT_USER_NAME) on global-$(TIME)'"
+		git commit -m '$(GIT_USER_NAME) on global-$(TIME)'"
 		git branch global-$(TIME)
 		git push -f --all
 
@@ -155,7 +155,7 @@ global-branch: docs touch-global
 .ONESHELL:
 time-branch: docs touch-time
 	bash -c "git add -f * .github && \
-		git commit -m 'update from $(GIT_USER_NAME) on time-$(TIME)'"
+		git commit -m '$(GIT_USER_NAME) on time-$(TIME)'"
 		git branch time-$(TIME)
 		git push -f --all
 
