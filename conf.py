@@ -128,10 +128,10 @@ exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', 'green', 'l
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
 #
-show_authors = True
+SHOW_AUTHORS = True
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+PYGMENT_STYLE = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -140,7 +140,7 @@ pygments_style = 'sphinx'
 # keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+TODO_INCLUDE_TODOS = False
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -148,9 +148,9 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_rtd_theme"
+HTML_THEME = "sphinx_rtd_theme"
 #html_theme = "glpi"
-html_theme_path = ["_themes/" ]
+HTML_THEME_PATH = ["_themes/" ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -168,23 +168,23 @@ html_theme_path = ["_themes/" ]
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
-html_short_title = ">>"
+HTML_SHORT_TITLE = ">>"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = '_static/icons/BeeICON-128.png'
+HTML_LOGO = '_static/icons/BeeICON-128.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-html_favicon = '_static/icons/favicon.png'
+HTML_FAVICON = '_static/icons/favicon.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+HTML_STATIC_PATH = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -196,7 +196,7 @@ html_static_path = ['_static']
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
 #
-html_last_updated_fmt = '%d%b%Y'+str(' (BTC.UNIX ')+str(btcunix)+str(')')
+HTML_LAST_UPDATED_FMT = '%d%b%Y'+str(' (BTC.UNIX ')+str(btcunix)+str(')')
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
