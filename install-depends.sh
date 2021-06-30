@@ -70,9 +70,9 @@ if [[ "$OSTYPE" == "linux"* ]]; then
             apt install awk
             report
             echo 'Using apt...'
-            curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
-            sudo apt install ./keybase_amd64.deb
-            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio
+            #curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
+            #sudo apt install ./keybase_amd64.deb
+            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio keybase
             run_keybase
         fi
     fi
