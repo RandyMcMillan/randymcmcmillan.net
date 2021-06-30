@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: glpi
+Version: 0.4.0
+Summary: GLPI API SDK
+Home-page: https://github.com/truly-systems/glpi-sdk-python
+Author: Marco Tulio R Braga
+Author-email: braga@mtulio.eng.br
+License: Apache-2.0
+Download-URL: https://github.com/truly-systems/glpi-sdk-python/archive/0.4.0.tar.gz
+Keywords: GLPI,SDK
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: future
+
+UNKNOWN
+
+
