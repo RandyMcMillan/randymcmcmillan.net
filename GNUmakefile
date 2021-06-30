@@ -140,7 +140,8 @@ push: docs touch-time
 branch: docs touch-time
 	bash -c "git add -f * .github && \
 		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
-	git push -f --all
+		git branch $(TIME)
+		git push -f --all
 
 .PHONY: automate
 automate: touch-time
