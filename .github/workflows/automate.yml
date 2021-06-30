@@ -68,7 +68,7 @@ jobs:
         run: |
           make docs
           sudo apt install pandoc
-          pandoc --quiet README.md -s -o index.html
+          pandoc README.md -s -o index.html
           cat index.html
           git diff
 
