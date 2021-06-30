@@ -1,1 +1,0 @@
-groundwork_sphinx_theme
