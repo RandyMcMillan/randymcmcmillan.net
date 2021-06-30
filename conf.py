@@ -25,6 +25,7 @@ import time
 millis = int(round(time.time() * 1000))
 seconds = int(round(time.time()))
 
+import subprocess
 import blockcypher
 
 try:
@@ -32,9 +33,6 @@ try:
 except:
     block_time = 0
     pass
-
-
-import subprocess
 
 # 'response' contains a []byte with the retrieved content.
 # use '-s' to keep curl quiet while it does its job, but
