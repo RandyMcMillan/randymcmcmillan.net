@@ -182,7 +182,7 @@ depends: #touch-time
 	bash -c "git clone https://github.com/$(GH_USER_NAME)/$(GH_USER_REPO) ~/$(GH_USER_REPO)"
 
 	./install-depends.sh
-	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme setuptools
+	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme #setuptools #glpi
 
 .PHONY:
 git-remote-add-keybase:
