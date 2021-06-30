@@ -103,12 +103,13 @@ touch-time:
 
 .PHONY: global
 .ONESHELL:
-global:
+global: 
 	#$(shell git rm -f 16*)
 	#git rm -f 16*
 	touch GLOBAL
 	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
 	echo $(TIME) > GLOBAL
+	bash -c 'make push'
 
 .PHONY: docs
 docs:
