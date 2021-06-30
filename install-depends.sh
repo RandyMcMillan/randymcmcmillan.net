@@ -73,8 +73,8 @@ if [[ "$OSTYPE" == "linux"* ]]; then
             curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
             sudo apt install ./keybase_amd64.deb
             run_keybase
-            pip --user install blockcypher setuptools
-            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio #keybase
+            pip3 --user install blockcypher setuptools
+            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-application #keybase
         fi
     fi
     if [[ "$OSTYPE" == "linux-musl" ]]; then
