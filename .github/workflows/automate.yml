@@ -66,9 +66,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          make automate
           make docs
-          sudo apt install pandoc
-          pandoc README.md -s -o index.html
           cat index.html
           git diff
 
@@ -84,6 +83,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          make automate
           make docs
+          cat index.html
           git diff
 

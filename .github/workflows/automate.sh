@@ -68,6 +68,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
         if hash apt 2>/dev/null; then
             sudo $PACKAGE_MANAGER $INSTALL $AWK pandoc
             report
+            pandoc -s README.md -o index.html
         fi
     fi
     if [[ "$OSTYPE" == "linux-musl" ]]; then
