@@ -183,7 +183,11 @@ depends: #touch-time
 	#pip  install sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme --user blockcypher
 	#make depends public=true
 	bash -c "[ -d '~/$(GITHUB_USER).github.io' ] && echo  || rm -rf ~/$(GITHUB_USER).github.io"
+ifeq ($(USER),runner)
+	git clone https://github.com/$(GITHUB_USER)/$(GITHUB_USER).github.io.git ~/$(GITHUB_USER).github.io
+else
 	git clone git@github.com:$(GITHUB_USER)/$(GITHUB_USER).github.io.git ~/$(GITHUB_USER).github.io
+endif
 
 .PHONY:
 git-remote-add-keybase:
