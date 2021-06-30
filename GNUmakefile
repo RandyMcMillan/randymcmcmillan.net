@@ -91,22 +91,6 @@ help: report
 	@echo "  make push"
 	@echo ""
 	@echo ""
-	@echo "Keybase usage:"
-	@echo ""
-	@echo "  make depends"
-	@echo "  make all"
-	@echo "  make push-all"
-	@echo "  make reload"
-	@echo "  make rebuild"
-	@echo "  make serve"
-	@echo ""
-	@echo "  make singlehtml"
-	@echo ""
-	@echo "Example:"
-	@echo ""
-	@echo "make push-all public=true"
-	@echo ""
-	@echo ""
 
 .PHONY: report
 report: 
@@ -162,7 +146,7 @@ time-branch: docs touch-time
 .PHONY: touch-time
 .ONESHELL:
 touch-time:
-	echo $(TIME) $(shell git rev-parse HEAD) > $(TIME)
+	echo $(TIME) $(shell git rev-parse HEAD) > TIME
 
 .PHONY: touch-global
 .ONESHELL:
