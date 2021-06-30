@@ -87,6 +87,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 .PHONY: help
 help: report
 	@echo ""
+	@echo "  make docs"
 	@echo "  make push"
 	@echo ""
 	@echo ""
