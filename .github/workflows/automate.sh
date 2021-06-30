@@ -28,7 +28,7 @@ checkbrew() {
         if !hash git 2>/dev/null; then
             brew install git
         fi
-        pip install -U sphinx
+        #pip install -U sphinx
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
         checkbrew
