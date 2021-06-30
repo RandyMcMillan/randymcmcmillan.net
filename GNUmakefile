@@ -175,16 +175,12 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 .PHONY: depends
 depends: #touch-time
 																	#????
-	#sudo rm -f /usr/bin/python
-	#pip3 install sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme --user blockcypher
-	./install-depends.sh
-	#sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
-	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
-#export PYTHONPATH=$(PYTHONPATH):$(PWD)/$(LIBS)
-	#pip  install sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme --user blockcypher
-	#make depends public=true
+	bash -c "[ -d '~/$(KB_USER).keybase.pub' ] && echo  || rm -rf ~/$(KB_USER).keybase.pub"
+	git clone git@github.com:$(GITHUB_USER)/$(KB_USER).keybase.pub.git ~/$(KB_USER).keybase.pub
 	bash -c "[ -d '~/$(GITHUB_USER).github.io' ] && echo  || rm -rf ~/$(GITHUB_USER).github.io"
 	git clone git@github.com:$(GITHUB_USER)/$(GITHUB_USER).github.io.git ~/$(GITHUB_USER).github.io
+	./install-depends.sh
+	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
 
 .PHONY:
 git-remote-add-keybase:
