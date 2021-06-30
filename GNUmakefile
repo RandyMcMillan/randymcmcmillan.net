@@ -142,13 +142,15 @@ branch: docs touch-time
 		git commit -m 'update from $(GIT_USER_NAME) on $(TIME)'"
 		git branch $(TIME)
 		git push -f --all
+
 .PHONY: global-branch
 .ONESHELL:
-global-branch: docs touch-time
+global-branch: docs touch-global
 	bash -c "git add -f * .github && \
 		git commit -m 'update from $(GIT_USER_NAME) on global-$(TIME)'"
 		git branch global-$(TIME)
 		git push -f --all
+
 .PHONY: time-branch
 .ONESHELL:
 time-branch: docs touch-time
@@ -157,14 +159,9 @@ time-branch: docs touch-time
 		git branch time-$(TIME)
 		git push -f --all
 
-.PHONY: automate
-automate: touch-time
-	./.github/workflows/automate.sh
-
 .PHONY: touch-time
 .ONESHELL:
 touch-time:
-	touch $(TIME)
 	echo $(TIME) $(shell git rev-parse HEAD) > $(TIME)
 
 .PHONY: touch-global
@@ -177,6 +174,10 @@ touch-global:
 global: 
 	make touch-global
 	make push
+
+.PHONY: automate
+automate: touch-time
+	./.github/workflows/automate.sh
 
 .PHONY: docs
 docs:
