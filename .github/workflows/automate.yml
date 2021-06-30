@@ -54,8 +54,6 @@ jobs:
           make            ghuser=randymcmillan kbuser=randymcmillan
           make depends    ghuser=randymcmillan kbuser=randymcmillan
           make singlehtml ghuser=randymcmillan kbuser=randymcmillan
-          make depends    ghuser=randymcmillan
-          make singlehtml ghuser=randymcmillan
           git diff
 
 # Cross Compile 
