@@ -72,6 +72,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
             echo 'Using apt...'
             curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
             sudo apt install ./keybase_amd64.deb
+            sudo apt install  libappindicator1 libdbusmenu-gtk4 libindicator7 indicator-applicatio
             run_keybase
         fi
     fi
