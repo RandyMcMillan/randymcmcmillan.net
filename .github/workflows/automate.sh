@@ -28,6 +28,9 @@ checkbrew() {
         if !hash git 2>/dev/null; then
             brew install git
         fi
+        if !hash pandoc 2>/dev/null; then
+            brew install pandoc
+        fi
         #pip install -U sphinx
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -63,7 +66,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
         AWK=gawk
         export AWK
         if hash apt 2>/dev/null; then
-            sudo $PACKAGE_MANAGER $INSTALL $AWK
+            sudo $PACKAGE_MANAGER $INSTALL $AWK pandoc
             report
         fi
     fi
