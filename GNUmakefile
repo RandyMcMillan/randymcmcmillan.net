@@ -101,6 +101,15 @@ touch-time:
 	echo $(TIME) > TIME
 	touch 1
 
+.PHONY: global
+.ONESHELL:
+global:
+	#$(shell git rm -f 16*)
+	#git rm -f 16*
+	touch GLOBAL
+	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
+	echo $(TIME) > GLOBAL
+
 .PHONY: docs
 docs:
 	@echo 'docs'
