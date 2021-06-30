@@ -1,14 +1,12 @@
-[🐝](https://keyserver.ubuntu.com/pks/lookup?search=randy.lee.mcmillan%40gmail.com&fingerprint=on&op=vindex) [Twitter](https://twitter.com/RandyMcMillan) [Keybase](https://randymcmillan.keybase.pub) [Clubhouse](https://clubhouse.com/@randymcmillan)
-----
-
-## [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
+## [🐝](https://keyserver.ubuntu.com/pks/lookup?search=randy.lee.mcmillan%40gmail.com&fingerprint=on&op=vindex) [Twitter](https://twitter.com/RandyMcMillan) [Keybase](https://randymcmillan.keybase.pub) [Clubhouse](https://clubhouse.com/@randymcmillan)
 <AUTOMATION>
 <p>
 
 ### AUTOMATION
 <CENTER>
 
- [![automate](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml) [![global-statoshi-host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
+ [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
+[![automate](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/automate.yml) [![global-statoshi-host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
 </CENTER>
 
 </p>
