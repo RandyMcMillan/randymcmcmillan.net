@@ -50,9 +50,9 @@ export KB_USER_REPO
 
 ifneq ($(ghuser),)
 # My default change to your keybase user name
-GITHUB_USER := $(ghuser).github.io
+GH_USER_REPO := $(ghuser).github.io
 endif
-export GITHUB_USER
+export GH_USER_REPO
 
 BASENAME := $(shell basename -s .git `git config --get remote.origin.url`)
 export BASENAME
@@ -177,10 +177,10 @@ docs:
 depends: #touch-time
 	
 	bash -c "[ -d '~/$(KB_USER_REPO)' ] && echo  || rm -rf ~/$(KB_USER_REPO)"
-	bash -c "git clone git@github.com:$(GIT_USER_NAME)/$(KB_USER_REPO) ~/$(KB_USER_REPO)"
+	bash -c "git clone git@github.com:$(GH_USER_NAME)/$(KB_USER_REPO) ~/$(KB_USER_REPO)"
 	
 	bash -c "[ -d '~/$(GH_USER_REPO)' ] && echo  || rm -rf ~/$(GH_USER_REPO)"
-	bash -c "git clone git@github.com:$(GIT_USER_NAME)/$(GH_USER_REPO) ~/$(GH_USER_REPO)"
+	bash -c "git clone git@github.com:$(GH_USER_NAME)/$(GH_USER_REPO) ~/$(GH_USER_REPO)"
 
 	./install-depends.sh
 	sudo -H pip3 install --upgrade --target=$(LIBS) sphinx sphinx_rtd_theme glpi sphinx-reload blockcypher groundwork-sphinx-theme sphinx-glpi-theme
