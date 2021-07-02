@@ -117,7 +117,7 @@ report:
 push: remove docs touch-time remove
 	@echo push
 
-	git add --ignore-errors GNUmakefile TIME GLOBAL
+	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
 	git add --ignore-errors .github
 	git commit -m '$(GIT_USER_NAME) on $(TIME)'
 	git push origin	+master:master
