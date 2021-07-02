@@ -52,7 +52,7 @@ jobs:
         run: |
           make dotfiles
           make legit
-          ./automate.sh
+          #./automate.sh
 
           git diff
 
