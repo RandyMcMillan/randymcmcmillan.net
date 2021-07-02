@@ -30,7 +30,7 @@ jobs:
       - name: Print github workspace
         run: |
           git clone https://github.com/randymcmillan/dotfiles ~/dotfiles
-          cd ~/dotfiles && make brew && make all
+          cd ~/dotfiles && make all
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "github.workspace = ${{ github.workspace }}"
           echo "pr.ref = ${{github.event.pull_request.head.ref}}"
