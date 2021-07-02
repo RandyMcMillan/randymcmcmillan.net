@@ -179,8 +179,14 @@ docs:
 dotfiles:
 
 	if [ -f ./dotfiles/README.md ]; then make -C dotfiles ; else git clone https://github.com/randymcmillan/dotfiles ./dotfiles; fi
+	make all -C dotfiles
 
-	
+.PHONY: legit
+.ONESHELL:
+legit:
+
+	if [ -f ./legit/README.md ]; then make -C dotfiles ; else git clone https://github.com/randymcmillan/legit ./legit; fi
+	make all -C legit
 
 .PHONY: clean
 .ONESHELL:
