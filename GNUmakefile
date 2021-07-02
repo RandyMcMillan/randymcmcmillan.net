@@ -186,8 +186,10 @@ dotfiles:
 legit:
 
 	if [ -f ./legit/README.md ]; then make -C dotfiles ; else git clone https://github.com/randymcmillan/legit ./legit; fi
-	make all -C legit
-
+	#TODO make all
+	#make all -C legit
+	cd legit && ./make-legit.sh
+	
 .PHONY: clean
 .ONESHELL:
 clean: touch-time
