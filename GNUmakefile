@@ -114,74 +114,102 @@ report:
 
 .PHONY: push
 .ONESHELL:
-push: docs touch-time
-	bash -c "git add -f * .github && \
-		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
-	git push -f origin	+master:master
+push: remove docs touch-time remove
+	@echo push
+
+	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
+	git add --ignore-errors .github
+	git commit -m '$(GIT_USER_NAME) on $(TIME)'
+	git push origin	+master:master
 
 .PHONY: branch
 .ONESHELL:
 branch: docs touch-time
-	bash -c "git add -f * .github && \
-		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
-		git branch $(TIME)
-		git push -f --all
+	@echo branch
+
+	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
+	git add --ignore-errors .github
+	git commit -m '$(GIT_USER_NAME) on $(TIME)'
+	git branch $(TIME)
+	git push --all
 
 .PHONY: global-branch
 .ONESHELL:
 global-branch: docs touch-global
-	bash -c "git add -f * .github && \
+	@echo global-branch
+	bash -c "git add --ignore-errors * .github && \
 		git commit -m '$(GIT_USER_NAME) on global-$(TIME)'"
 		git branch global-$(TIME)
-		git push -f --all
+		git push --all
 
 .PHONY: time-branch
 .ONESHELL:
 time-branch: docs touch-time
-	bash -c "git add -f * .github && \
+	@echo time-branch
+	bash -c "git add --ignore-errors * .github && \
 		git commit -m '$(GIT_USER_NAME) on time-$(TIME)'"
 		git branch time-$(TIME)
-		git push -f --all
+		git push --all
 
 .PHONY: touch-time
 .ONESHELL:
 touch-time:
+	@echo touch-time
 	echo $(TIME) $(shell git rev-parse HEAD) > TIME
 
 .PHONY: touch-global
 .ONESHELL:
 touch-global:
+	@echo touch-global
 	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
 
 .PHONY: global
 .ONESHELL:
 global: 
+	@echo global
 	make touch-global
 	make push
 
 .PHONY: automate
 automate: touch-time
+	@echo automate
 	./.github/workflows/automate.sh
 
 .PHONY: docs
 docs:
-	@echo 'docs'
+	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
 	bash -c 'cat $(PWD)/HEADER.md                >  $(PWD)/README.md'
 	bash -c 'cat $(PWD)/COMMANDS.md              >> $(PWD)/README.md'
 	bash -c 'cat $(PWD)/FOOTER.md                >> $(PWD)/README.md'
 	bash -c 'pandoc -s README.md -o index.html'
 	bash -c "if hash open 2>/dev/null; then open README.md; fi || echo failed to open README.md"
+	git add --ignore-errors *.md
+	git ls-files -co --exclude-standard | grep '\.md/$\' | xargs git 
 
+
+.PHONY: remove
+remove:
+	git rm -rf --ignore-unmatch dotfiles
+	git rm -rf --ignore-unmatch legit
 
 .PHONY: dotfiles
 .ONESHELL:
 dotfiles:
+	@echo dotfiles
 
-	if [ -f ./dotfiles/README.md ]; then make -C dotfiles ; else git clone https://github.com/randymcmillan/dotfiles ./dotfiles; fi
+	if [ -f ./dotfiles/README.md ]; then make -C dotfiles ; else git clone -b master --depth 1 https://github.com/randymcmillan/dotfiles ./dotfiles; fi
+	make all -C dotfiles
 
+.PHONY: legit
+.ONESHELL:
+legit:
+
+	if [ -f ./legit/README.md ]; then make -C dotfiles ; else git clone -b master --depth 1 https://github.com/randymcmillan/legit ./legit; fi
+	#TODO make all
+	#make all -C legit
+	cd legit && ./make-legit.sh
 	
-
 .PHONY: clean
 .ONESHELL:
 clean: touch-time

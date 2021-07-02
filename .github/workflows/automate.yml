@@ -51,6 +51,7 @@ jobs:
       - name: Make
         run: |
           make dotfiles
+          make legit
           ./automate.sh
 
           git diff
@@ -68,6 +69,7 @@ jobs:
       - name: Make
         run: |
           make dotfiles
+          make legit
           make automate
           make docs
           cat index.html
@@ -86,6 +88,7 @@ jobs:
       - name: Make
         run: |
           make dotfiles
+          make legit
           make automate
           make docs
           cat index.html
