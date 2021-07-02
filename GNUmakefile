@@ -126,10 +126,12 @@ push: remove docs touch-time remove
 .ONESHELL:
 branch: docs touch-time
 	@echo branch
-	bash -c "git add --ignore-errors * .github && \
-		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
-		git branch $(TIME)
-		git push --all
+
+	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
+	git add --ignore-errors .github
+	git commit -m '$(GIT_USER_NAME) on $(TIME)'
+	git branch $(TIME)
+	git push --all
 
 .PHONY: global-branch
 .ONESHELL:
