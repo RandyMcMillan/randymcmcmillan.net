@@ -115,33 +115,33 @@ report:
 .PHONY: push
 .ONESHELL:
 push: docs touch-time
-	bash -c "git add -f * .github && \
+	bash -c "git add * .github && \
 		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
-	git push -f origin	+master:master
+	git push origin	+master:master
 
 .PHONY: branch
 .ONESHELL:
 branch: docs touch-time
-	bash -c "git add -f * .github && \
+	bash -c "git add * .github && \
 		git commit -m '$(GIT_USER_NAME) on $(TIME)'"
 		git branch $(TIME)
-		git push -f --all
+		git push --all
 
 .PHONY: global-branch
 .ONESHELL:
 global-branch: docs touch-global
-	bash -c "git add -f * .github && \
+	bash -c "git add * .github && \
 		git commit -m '$(GIT_USER_NAME) on global-$(TIME)'"
 		git branch global-$(TIME)
-		git push -f --all
+		git push --all
 
 .PHONY: time-branch
 .ONESHELL:
 time-branch: docs touch-time
-	bash -c "git add -f * .github && \
+	bash -c "git add * .github && \
 		git commit -m '$(GIT_USER_NAME) on time-$(TIME)'"
 		git branch time-$(TIME)
-		git push -f --all
+		git push --all
 
 .PHONY: touch-time
 .ONESHELL:
