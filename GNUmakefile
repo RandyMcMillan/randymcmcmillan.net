@@ -177,7 +177,7 @@ automate: touch-time
 
 .PHONY: docs
 docs:
-	@echo docs
+	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
 	bash -c 'cat $(PWD)/HEADER.md                >  $(PWD)/README.md'
 	bash -c 'cat $(PWD)/COMMANDS.md              >> $(PWD)/README.md'
