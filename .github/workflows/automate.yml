@@ -50,6 +50,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          make dotfiles
           ./automate.sh
 
           git diff
@@ -66,6 +67,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          make dotfiles
           make automate
           make docs
           cat index.html
@@ -83,6 +85,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Make
         run: |
+          make dotfiles
           make automate
           make docs
           cat index.html

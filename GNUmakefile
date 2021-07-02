@@ -173,6 +173,15 @@ docs:
 	bash -c 'pandoc -s README.md -o index.html'
 	bash -c "if hash open 2>/dev/null; then open README.md; fi || echo failed to open README.md"
 
+
+.PHONY: dotfiles
+.ONESHELL:
+dotfiles:
+
+	if [ -f ./dotfiles/README.md ]; then make -C dotfiles ; else git clone https://github.com/randymcmillan/dotfiles ./dotfiles; fi
+
+	
+
 .PHONY: clean
 .ONESHELL:
 clean: touch-time
