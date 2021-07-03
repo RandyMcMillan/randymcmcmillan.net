@@ -1,13 +1,9 @@
 <AUTOMATION>
 <p>
 
-## [![Awesome](https://awesome.re/badge.svg)](./sources/awesome.md)
+## [![Awesome](https://awesome.re/badge.svg)](./sources/awesome.md) [![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
 
-<CENTER>
-
-[![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
-
-</CENTER>
+<CENTER></CENTER>
 
 </p>
 </AUTOMATION>
