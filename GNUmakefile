@@ -208,7 +208,8 @@ awesome: touch-time
 	@echo awesome
 
 	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o sources/awesome-temp.md"
-	bash -c "sed '1,136d' sources/AWESOME-temp.md > sources/AWESOME.md && open sources/AWESOME.md"
+	bash -c "sed '1,136d' sources/AWESOME-temp.md > sources/AWESOME.md"
+	bash -c 'pandoc -s sources/AWESOME.md -o sources/awesome.html'
 
 .PHONY: remove
 remove:
