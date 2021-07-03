@@ -192,12 +192,13 @@ automate: touch-time
 docs: remove
 	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
-	bash -c 'cat $(PWD)/HEADER.md                >  $(PWD)/README.md'
-	bash -c 'cat $(PWD)/COMMANDS.md              >> $(PWD)/README.md'
-	bash -c 'cat $(PWD)/FOOTER.md                >> $(PWD)/README.md'
+	bash -c 'cat $(PWD)/sources/HEADER.md                >  $(PWD)/README.md'
+	bash -c 'cat $(PWD)/sources/COMMANDS.md              >> $(PWD)/README.md'
+	bash -c 'cat $(PWD)/sources/FOOTER.md                >> $(PWD)/README.md'
 	#bash -c 'pandoc -s README.md -o index.html  --metadata title="$(GH_USER_REPO)" '
 	bash -c 'pandoc -s README.md -o index.html'
 	bash -c "if hash open 2>/dev/null; then open README.md; fi || echo failed to open README.md"
+	git add --ignore-errors sources/*.md
 	git add --ignore-errors *.md
 	#git ls-files -co --exclude-standard | grep '\.md/$\' | xargs git 
 
