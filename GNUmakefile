@@ -216,7 +216,7 @@ awesome: touch-time git-add
 
 	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o ~/randymcmillan/sources/awesome-temp.md"
 	bash -c "sed '1,136d' ~/randymcmillan/sources/AWESOME-temp.md > ~/randymcmillan/sources/AWESOME.md"
-	bash -c 'pandoc -s ~/randymcmillan/sources/AWESOME.md -o ~/randymcmillan/sources/awesome.html'
+	bash -c "pandoc -s ~/randymcmillan/sources/AWESOME.md -o ~/randymcmillan/sources/awesome.html"
 
 .PHONY: remove
 remove:
