@@ -211,8 +211,8 @@ remove:
 dotfiles:
 	@echo dotfiles
 
-	if [ -f ./dotfiles/README.md ]; then make -C dotfiles ; else git clone -b master --depth 1 https://github.com/randymcmillan/dotfiles ./dotfiles; fi
-	make all -C dotfiles
+	if [ -f ~/dotfiles/README.md ]; then make -C dotfiles ; else git clone -b master --depth 1 https://github.com/randymcmillan/dotfiles ~/dotfiles; fi
+	make all -C ~/dotfiles
 
 .PHONY: legit
 .ONESHELL:
