@@ -5,7 +5,7 @@
 <CENTER>
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
-[![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![global-statoshi-host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![global-stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
+[![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/statoshi.host.yml) [![stats-bitcoincore-dev](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/actions/workflows/stats.bitcoincore.dev.yml)
 
 </CENTER>
 
