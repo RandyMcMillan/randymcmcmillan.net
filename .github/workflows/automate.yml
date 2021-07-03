@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: automate
+name: automate.yml
 
 # Controls when the action will run. 
 on:
@@ -29,13 +29,13 @@ jobs:
     steps:
       - name: Print github workspace
         run: |
-          git clone https://github.com/randymcmillan/dotfiles ~/dotfiles
-          cd ~/dotfiles && make all
-          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-          echo "github.workspace = ${{ github.workspace }}"
-          echo "pr.ref = ${{github.event.pull_request.head.ref}}"
-          echo "github.ref = ${{ github.ref }}"
-          echo "$GITHUB_CONTEXT"
+          #git clone https://github.com/randymcmillan/dotfiles ~/dotfiles
+          #cd ~/dotfiles && make all
+          #echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          #echo "github.workspace = ${{ github.workspace }}"
+          #echo "pr.ref = ${{github.event.pull_request.head.ref}}"
+          #echo "github.ref = ${{ github.ref }}"
+          #echo "$GITHUB_CONTEXT"
           printenv
 
 # Cross Compile 
@@ -52,9 +52,6 @@ jobs:
         run: |
           make dotfiles
           make legit
-          #./automate.sh
-
-          git diff
 
 # Cross Compile 
   ubuntu-18-host:
