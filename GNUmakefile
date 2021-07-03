@@ -136,7 +136,7 @@ push: git-add remove docs touch-time remove git-add
 
 .PHONY: branch
 .ONESHELL:
-branch: docs touch-time
+branch: remove docs touch-time
 	@echo branch
 
 	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
@@ -147,7 +147,7 @@ branch: docs touch-time
 
 .PHONY: global-branch
 .ONESHELL:
-global-branch: docs touch-global
+global-branch: remove docs touch-global
 	@echo global-branch
 	bash -c "git add --ignore-errors * .github && \
 		git commit -m 'make global-branch by $(GIT_USER_NAME) on global-$(TIME)'"
@@ -156,7 +156,7 @@ global-branch: docs touch-global
 
 .PHONY: time-branch
 .ONESHELL:
-time-branch: docs touch-time
+time-branch: remove docs touch-time remove
 	@echo time-branch
 	bash -c "git add --ignore-errors * .github && \
 		git commit -m 'make time-branch by $(GIT_USER_NAME) on time-$(TIME)'"
@@ -165,19 +165,19 @@ time-branch: docs touch-time
 
 .PHONY: touch-time
 .ONESHELL:
-touch-time:
+touch-time: remove
 	@echo touch-time
 	echo $(TIME) $(shell git rev-parse HEAD) > TIME
 
 .PHONY: touch-global
 .ONESHELL:
-touch-global:
+touch-global: remove
 	@echo touch-global
 	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
 
 .PHONY: global
 .ONESHELL:
-global: 
+global:  remove
 	@echo global
 	make touch-global
 	make push
@@ -188,7 +188,7 @@ automate: touch-time
 	./.github/workflows/automate.sh
 
 .PHONY: docs
-docs:
+docs: remove
 	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
 	bash -c 'cat $(PWD)/HEADER.md                >  $(PWD)/README.md'
@@ -203,8 +203,8 @@ docs:
 
 .PHONY: remove
 remove:
-	git rm -rf --ignore-unmatch dotfiles
-	git rm -rf --ignore-unmatch legit
+	rm -rf dotfiles
+	rm -rf legit
 
 .PHONY: dotfiles
 .ONESHELL:
