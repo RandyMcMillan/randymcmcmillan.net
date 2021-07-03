@@ -30,6 +30,7 @@ checkbrew() {
         fi
         #if !hash pandoc 2>/dev/null; then
             brew install pandoc
+            pip3 install blockcypher
         #fi
         #pip install -U sphinx
     else
