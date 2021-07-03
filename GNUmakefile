@@ -186,6 +186,7 @@ touch-global: remove git-add docs touch-block-time
 .ONESHELL:
 touch-block-time: remove git-add docs
 	@echo touch-block-time
+	bash -c "pip install blockcypher"
 	./touch-block-time.py
 
 .PHONY: automate
