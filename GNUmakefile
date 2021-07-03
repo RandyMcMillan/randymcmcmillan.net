@@ -121,6 +121,7 @@ git-add:
 	git add --ignore-errors TIME
 	git add --ignore-errors GLOBAL
 	git add --ignore-errors CNAME
+	git add --ignore-errors sources/CNAME
 	git add --ignore-errors index.html
 	git add --ignore-errors .gitignore
 	git add --ignore-errors .github
