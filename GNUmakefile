@@ -118,6 +118,9 @@ git-add:
 	@echo git-add
 
 	git add --ignore-errors GNUmakefile
+	git add --ignore-errors README.md
+	git add --ignore-errors sources/*.md
+	git add --ignore-errors sources/*.html
 	git add --ignore-errors TIME
 	git add --ignore-errors GLOBAL
 	git add --ignore-errors CNAME
@@ -138,7 +141,7 @@ push: git-add remove docs touch-time remove git-add
 
 .PHONY: branch
 .ONESHELL:
-branch: remove docs touch-time
+branch: remove git-add docs touch-time
 	@echo branch
 
 	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
@@ -149,7 +152,7 @@ branch: remove docs touch-time
 
 .PHONY: global-branch
 .ONESHELL:
-global-branch: remove docs touch-global
+global-branch: remove git-add docs touch-global
 	@echo global-branch
 	bash -c "git add --ignore-errors * .github && \
 		git commit -m 'make global-branch by $(GIT_USER_NAME) on global-$(TIME)'"
@@ -158,7 +161,7 @@ global-branch: remove docs touch-global
 
 .PHONY: time-branch
 .ONESHELL:
-time-branch: remove docs touch-time remove
+time-branch: remove git-add docs touch-time remove
 	@echo time-branch
 	bash -c "git add --ignore-errors * .github && \
 		git commit -m 'make time-branch by $(GIT_USER_NAME) on time-$(TIME)'"
@@ -167,30 +170,30 @@ time-branch: remove docs touch-time remove
 
 .PHONY: touch-time
 .ONESHELL:
-touch-time: remove
+touch-time: remove git-add
 	@echo touch-time
 	echo $(TIME) $(shell git rev-parse HEAD) > TIME
 
 .PHONY: touch-global
 .ONESHELL:
-touch-global: remove
+touch-global: remove git-add
 	@echo touch-global
 	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
 
 .PHONY: global
 .ONESHELL:
-global:  remove
+global:  remove git-add
 	@echo global
 	make touch-global
 	make push
 
 .PHONY: automate
-automate: touch-time
+automate: touch-time git-add
 	@echo automate
 	./.github/workflows/automate.sh
 
 .PHONY: docs
-docs: remove awesome
+docs: remove git-add awesome
 	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
 	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o sources/awesome-temp.md"
@@ -205,7 +208,7 @@ docs: remove awesome
 	#git ls-files -co --exclude-standard | grep '\.md/$\' | xargs git 
 
 .PHONY: awesome
-awesome: touch-time
+awesome: touch-time git-add
 	@echo awesome
 
 	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o sources/awesome-temp.md"
@@ -237,8 +240,7 @@ legit:
 	
 .PHONY: clean
 .ONESHELL:
-clean: touch-time
-	bash -c "rm -rf 1618*"
+clean: touch-time touch-global
 	bash -c "rm -rf $(BUILDDIR)"
 
 .PHONY: serve
