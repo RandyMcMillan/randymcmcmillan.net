@@ -129,3 +129,4 @@ docker.shell
 
 dotfiles
 legit
+.github/.DS_Store
