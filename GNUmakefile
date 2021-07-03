@@ -117,7 +117,14 @@ report:
 git-add:
 	@echo git-add
 
-	git add --ignore-errors GNUmakefile TIME GLOBAL CNAME .gitignore .github *.sh *.yml
+	git add --ignore-errors GNUmakefile
+	git add --ignore-errors TIME
+	git add --ignore-errors GLOBAL
+	git add --ignore-errors CNAME
+	git add --ignore-errors .gitignore
+	git add --ignore-errors .github
+	git add --ignore-errors *.sh
+	git add --ignore-errors *.yml
 
 .PHONY: push
 .ONESHELL:
