@@ -121,7 +121,7 @@ git-add:
 
 .PHONY: push
 .ONESHELL:
-push: git-add remove docs touch-time remove
+push: git-add remove docs touch-time remove git-add
 	@echo push
 
 	git commit -m '$(GIT_USER_NAME) on $(TIME)'
