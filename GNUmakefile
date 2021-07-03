@@ -135,7 +135,7 @@ git-add:
 
 .PHONY: push
 .ONESHELL:
-push: git-add remove docs touch-time touch-block-time remove git-add
+push: remove git-add docs touch-time touch-block-time
 	@echo push
 
 	git commit -m 'make push by $(GIT_USER_NAME) on $(TIME)'
@@ -143,7 +143,7 @@ push: git-add remove docs touch-time touch-block-time remove git-add
 
 .PHONY: branch
 .ONESHELL:
-branch: remove git-add docs touch-time
+branch: remove git-add docs touch-time touch-block-time
 	@echo branch
 
 	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
@@ -154,7 +154,7 @@ branch: remove git-add docs touch-time
 
 .PHONY: global-branch
 .ONESHELL:
-global-branch: remove git-add docs touch-global
+global-branch: remove git-add docs touch-time touch-global touch-block-time
 	@echo global-branch
 	bash -c "git add --ignore-errors * .github && \
 		git commit -m 'make global-branch by $(GIT_USER_NAME) on global-$(TIME)'"
@@ -163,7 +163,7 @@ global-branch: remove git-add docs touch-global
 
 .PHONY: time-branch
 .ONESHELL:
-time-branch: remove git-add docs touch-time remove
+time-branch: remove git-add docs touch-time touch-block-time
 	@echo time-branch
 	bash -c "git add --ignore-errors * .github && \
 		git commit -m 'make time-branch by $(GIT_USER_NAME) on time-$(TIME)'"
@@ -172,13 +172,13 @@ time-branch: remove git-add docs touch-time remove
 
 .PHONY: touch-time
 .ONESHELL:
-touch-time: remove git-add
+touch-time: remove git-add docs touch-block-time
 	@echo touch-time
 	echo $(TIME) $(shell git rev-parse HEAD) > TIME
 
 .PHONY: touch-global
 .ONESHELL:
-touch-global: remove git-add
+touch-global: remove git-add docs touch-block-time
 	@echo touch-global
 	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
 
