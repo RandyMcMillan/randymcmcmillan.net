@@ -189,9 +189,10 @@ automate: touch-time
 	./.github/workflows/automate.sh
 
 .PHONY: docs
-docs: remove
+docs: remove awesome
 	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
+	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o sources/awesome-temp.md"
 	bash -c 'cat $(PWD)/sources/HEADER.md                >  $(PWD)/README.md'
 	bash -c 'cat $(PWD)/sources/COMMANDS.md              >> $(PWD)/README.md'
 	bash -c 'cat $(PWD)/sources/FOOTER.md                >> $(PWD)/README.md'
@@ -202,11 +203,18 @@ docs: remove
 	git add --ignore-errors *.md
 	#git ls-files -co --exclude-standard | grep '\.md/$\' | xargs git 
 
+.PHONY: awesome
+awesome: touch-time
+	@echo awesome
+
+	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o sources/awesome-temp.md"
+	bash -c "sed '1,136d' sources/AWESOME-temp.md > sources/AWESOME.md && open sources/AWESOME.md"
 
 .PHONY: remove
 remove:
 	rm -rf dotfiles
 	rm -rf legit
+	rm -rf sources/awesome-temp.md
 
 .PHONY: dotfiles
 .ONESHELL:
