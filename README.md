@@ -2,9 +2,7 @@
 <AUTOMATION>
 <p>
 
-[![Awesome](https://awesome.re/badge.svg)](./sources/awesome.md)
-
-----
+## [![Awesome](https://awesome.re/badge.svg)](./sources/awesome.md)
 
 <CENTER>
 
