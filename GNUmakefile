@@ -124,7 +124,7 @@ git-add:
 	git add --ignore-errors TIME
 	git add --ignore-errors GLOBAL
 	git add --ignore-errors CNAME
-	git add --ignore-errors touch_block_time.py
+	git add --ignore-errors touch-block-time.py
 	git add --ignore-errors *.py
 	#git add --ignore-errors sources/*.py
 	git add --ignore-errors index.html
@@ -182,12 +182,11 @@ touch-global: remove git-add
 	@echo touch-global
 	echo $(TIME) $(shell git rev-parse HEAD) > GLOBAL
 
-.PHONY: global
+.PHONY: touch-block-time
 .ONESHELL:
-global:  remove git-add
-	@echo global
-	make touch-global
-	make push
+touch-block-time: remove git-add
+	@echo touch-block-time
+	./touch-block-time.py
 
 .PHONY: automate
 automate: touch-time git-add
