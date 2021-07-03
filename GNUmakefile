@@ -131,7 +131,7 @@ git-add:
 push: git-add remove docs touch-time remove git-add
 	@echo push
 
-	git commit -m '$(GIT_USER_NAME) on $(TIME)'
+	git commit -m 'make push by $(GIT_USER_NAME) on $(TIME)'
 	git push origin	+master:master
 
 .PHONY: branch
@@ -141,7 +141,7 @@ branch: docs touch-time
 
 	git add --ignore-errors GNUmakefile TIME GLOBAL .github *.sh *.yml
 	git add --ignore-errors .github
-	git commit -m '$(GIT_USER_NAME) on $(TIME)'
+	git commit -m 'make branch by $(GIT_USER_NAME) on $(TIME)'
 	git branch $(TIME)
 	git push --all
 
@@ -150,7 +150,7 @@ branch: docs touch-time
 global-branch: docs touch-global
 	@echo global-branch
 	bash -c "git add --ignore-errors * .github && \
-		git commit -m '$(GIT_USER_NAME) on global-$(TIME)'"
+		git commit -m 'make global-branch by $(GIT_USER_NAME) on global-$(TIME)'"
 		git branch global-$(TIME)
 		git push --all
 
@@ -159,7 +159,7 @@ global-branch: docs touch-global
 time-branch: docs touch-time
 	@echo time-branch
 	bash -c "git add --ignore-errors * .github && \
-		git commit -m '$(GIT_USER_NAME) on time-$(TIME)'"
+		git commit -m 'make time-branch by $(GIT_USER_NAME) on time-$(TIME)'"
 		git branch time-$(TIME)
 		git push --all
 
