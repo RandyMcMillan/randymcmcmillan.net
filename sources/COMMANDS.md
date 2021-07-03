@@ -1,21 +1,35 @@
 <AUTOMATION>
 <p>
 
-## [![Awesome](https://awesome.re/badge.svg)](./sources/awesome.md) [![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml) [![stats.bitcoincore.dev](https://github.com/bitcoincore-dev/stats.bitcoincore.dev/actions/workflows/stats.bitcoincore.dev.yml/badge.svg)](https://github.com/bitcoincore-dev/stats.bitcoincore.dev/actions/workflows/stats.bitcoincore.dev.yml)
+## [![Awesome](https://awesome.re/badge.svg)](./sources/awesome.md) [![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml)
 
 <CENTER></CENTER>
 
 </p>
 </AUTOMATION>
 
-
 <details>
-<summary>COMMANDS</summary>
+<summary>legit - git commit custom hash</summary>
 
 ```shell
-TOKEN=$(~/GH_TOKEN); export TOKEN && curl -I https://api.github.com -u $(GIT_USER):$TOKEN
+git clone https://github.com/RandyMcMillan/legit.git ~/legit
+cd ~/legit && ./make-legit.sh
 ```
 </p>
 </details>
+
+
+<details>
+<summary>statoshi.host - dockerized bitcoin node statistics</summary>
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install docker docker-compose make
+git clone https://github.com/bitcoincore-dev/statoshi.host.git ~/statoshi.host
+cd ~/statoshi.host && make run
+```
+</p>
+</details>
+
 
 
