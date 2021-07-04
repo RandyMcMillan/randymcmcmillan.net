@@ -211,7 +211,7 @@ docs: remove git-add awesome
 	#git ls-files -co --exclude-standard | grep '\.md/$\' | xargs git 
 
 .PHONY: awesome
-awesome: touch-time git-add
+awesome:
 	@echo awesome
 
 	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o ./sources/AWESOME-temp.md"
