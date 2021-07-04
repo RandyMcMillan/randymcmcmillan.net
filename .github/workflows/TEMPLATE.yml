@@ -6,7 +6,7 @@ name: TEMPLATE.yml
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    #paths:
+    paths:
       - '.github/workflows/TEMPLATE.yml'
       - '.github/workflows/TEMPLATE.sh'
     schedule:
