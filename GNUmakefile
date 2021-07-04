@@ -213,6 +213,7 @@ docs: git-add awesome
 .PHONY: awesome
 awesome:
 	@echo awesome
+	brew install curl gnu-sed pandoc
 
 	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o ./sources/AWESOME-temp.md"
 	bash -c "sed '1,136d' ~/randymcmillan/sources/AWESOME-temp.md > ./sources/AWESOME.md"
