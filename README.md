@@ -47,4 +47,4 @@ tr -d '\n' | cut -c 17-368600 | xxd -r -p > bitcoin.pdf
 ```
 
 </p>
-</details>ST
+</details>
