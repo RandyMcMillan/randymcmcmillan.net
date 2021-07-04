@@ -198,7 +198,7 @@ automate: touch-time git-add
 docs: remove git-add awesome
 	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
-	bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o sources/awesome-temp.md"
+	#bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o ./sources/AWESOME-temp.md"
 	bash -c 'cat $(PWD)/sources/HEADER.md                >  $(PWD)/README.md'
 	bash -c 'cat $(PWD)/sources/COMMANDS.md              >> $(PWD)/README.md'
 	bash -c 'cat $(PWD)/sources/FOOTER.md                >> $(PWD)/README.md'
@@ -222,7 +222,6 @@ awesome:
 remove:
 	rm -rf dotfiles
 	rm -rf legit
-	rm -rf sources/awesome-temp.md
 
 .PHONY: dotfiles
 .ONESHELL:
