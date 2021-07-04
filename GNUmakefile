@@ -114,7 +114,7 @@ report:
 
 .PHONY: git-add
 .ONESHELL:
-git-add:
+git-add: remove
 	@echo git-add
 
 	git add --ignore-errors GNUmakefile
@@ -195,7 +195,7 @@ automate: touch-time git-add
 	./.github/workflows/automate.sh
 
 .PHONY: docs
-docs: remove git-add awesome
+docs: git-add awesome
 	#@echo docs
 	bash -c "if pgrep MacDown; then pkill MacDown; fi"
 	#bash -c "curl https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md -o ./sources/AWESOME-temp.md"
