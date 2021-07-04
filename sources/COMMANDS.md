@@ -26,7 +26,7 @@ cd ~/legit && ./make-legit.sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install docker docker-compose make
 git clone https://github.com/bitcoincore-dev/statoshi.host.git ~/statoshi.host
-cd ~/statoshi.host && make run
+cd ~/statoshi.host && make init run user=root port=80
 ```
 </p>
 </details>
