@@ -32,6 +32,7 @@ checkbrew() {
             brew install pandoc
             pip  install --user blockcypher
             pip3 install --user blockcypher
+            brew install libevent
         #fi
         #pip install -U sphinx
     else
