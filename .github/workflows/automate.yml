@@ -9,7 +9,7 @@ on:
     #paths:
     #  - '.github/workflows/automate.yml'
     schedule:
-      - cron: "*/3 * * * *"
+      - cron: "*/5 * * * *"
 
     branches:       #[ master ]
       - '*'         # matches every branch that doesn't contain a '/'
