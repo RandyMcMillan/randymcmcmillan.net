@@ -12,7 +12,7 @@
 <summary>legit - git commit custom hash</summary>
 
 ```shell
-git clone https://github.com/RandyMcMillan/legit.git ~/legit
+git clone https://github.com/RandyMcMillan/legit.git ~/legit && \
 cd ~/legit && ./make-legit.sh
 ```
 </p>
@@ -23,9 +23,9 @@ cd ~/legit && ./make-legit.sh
 <summary>statoshi.host - dockerized bitcoin node statistics</summary>
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install docker docker-compose make
-git clone https://github.com/bitcoincore-dev/statoshi.host.git ~/statoshi.host
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+brew install docker docker-compose make && \
+git clone https://github.com/bitcoincore-dev/statoshi.host.git ~/statoshi.host && \
 cd ~/statoshi.host && make init run user=root port=80
 ```
 </p>

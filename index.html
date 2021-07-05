@@ -161,7 +161,7 @@
 <summary>
 legit - git commit custom hash
 </summary>
-<pre class="shell"><code>git clone https://github.com/RandyMcMillan/legit.git ~/legit
+<pre class="shell"><code>git clone https://github.com/RandyMcMillan/legit.git ~/legit &amp;&amp; \
 cd ~/legit &amp;&amp; ./make-legit.sh</code></pre>
 </p>
 </details>
@@ -169,9 +169,9 @@ cd ~/legit &amp;&amp; ./make-legit.sh</code></pre>
 <summary>
 statoshi.host - dockerized bitcoin node statistics
 </summary>
-<pre class="shell"><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
-brew install docker docker-compose make
-git clone https://github.com/bitcoincore-dev/statoshi.host.git ~/statoshi.host
+<pre class="shell"><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot; &amp;&amp; \
+brew install docker docker-compose make &amp;&amp; \
+git clone https://github.com/bitcoincore-dev/statoshi.host.git ~/statoshi.host &amp;&amp; \
 cd ~/statoshi.host &amp;&amp; make init run user=root port=80</code></pre>
 </p>
 </details>
