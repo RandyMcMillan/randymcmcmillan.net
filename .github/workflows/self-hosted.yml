@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Self Hosted Workflow
+name: self-hosted
 
 # Controls when the action will run. 
 on:
@@ -46,6 +46,53 @@ jobs:
           echo
           fi
           if [[ "${{ runner.os }}" == "macOS" ]]; then
+          echo
+          fi
+
+  stats-bitcoincore-dev:
+    runs-on: self-hosted
+    steps:
+      - uses: styfle/cancel-workflow-action@0.8.0
+        with:
+          access_token: ${{ github.token }}
+      - uses: actions/checkout@v2
+      - name: self-hosted2
+        run: |
+          echo ${{ runner.os }}
+          if [[ "${{ runner.os }}" == "Linux" ]]; then
+          echo
+          git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
+          cd stats.bitcoincored.dev
+          make init run user=root port=1234
+          fi
+          if [[ "${{ runner.os }}" == "macOS" ]]; then
+          echo
+          git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
+          cd stats.bitcoincored.dev
+          make init run user=root port=1234
+          echo
+          fi
+  statoshi-host:
+    runs-on: self-hosted
+    steps:
+      - uses: styfle/cancel-workflow-action@0.8.0
+        with:
+          access_token: ${{ github.token }}
+      - uses: actions/checkout@v2
+      - name: self-hosted2
+        run: |
+          echo ${{ runner.os }}
+          if [[ "${{ runner.os }}" == "Linux" ]]; then
+          echo
+          git clone https://github.com/bitcoincore-dev/statoshi.host
+          cd statoshi.host
+          make init run user=root port=1234
+          fi
+          if [[ "${{ runner.os }}" == "macOS" ]]; then
+          echo
+          git clone https://github.com/bitcoincore-dev/statoshi.host
+          cd statoshi.host
+          make init run user=root port=2345
           echo
           fi
 

@@ -6,8 +6,8 @@ name: stats.bitcoincore.dev
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    paths:
-      - 'GLOBAL'
+    #paths:
+    #  - 'GLOBAL'
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -15,66 +15,61 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  ubuntu-18-docker:
+
+################################################################################
+
+  ubuntu-18-docker1:
     runs-on: ubuntu-18.04
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
       - uses: styfle/cancel-workflow-action@0.8.0
         with:
           access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - name: Make
+      - name: ubuntu-18-docker1
         run: |
           git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
           cd stats.bitcoincore.dev
-          make init help report header run user=root verbose=true 
+          make init header run user=root port=1234 verbose=true nocache=true
 
-  macos-10-docker:
+  macos-10-docker1:
     runs-on: macos-10.15
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
       - uses: styfle/cancel-workflow-action@0.8.0
         with:
           access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - name: Make
+      - name: macos-10-docker1
         run: |
           git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
           cd stats.bitcoincore.dev
-          make init help report header run user=root verbose=true 
+          make init header run user=root port=1234 verbose=true nocache=true
 
-# Cross Compile 
-  ubuntu-18-host:
+################################################################################
+
+  ubuntu-18-docker2:
     runs-on: ubuntu-18.04
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
       - uses: styfle/cancel-workflow-action@0.8.0
         with:
           access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - name: Make
+      - name: macos-10-docker2
         run: |
           git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
           cd stats.bitcoincore.dev
-          .github/workflows/./install-bitcoin-libs.sh
-          ./autogen.sh
-          ./configure --disable-wallet --disable-tests --disable-bench --disable-docs
-          make install
+          make init header run user=root port=1234 verbose=true nocache=true
 
-  macos-10-host:
+  macos-10-docker2:
     runs-on: macos-10.15
     steps:
       ## REF: https://githubmemory.com/repo/Gisleburt/cancel-workflow-action
       - uses: styfle/cancel-workflow-action@0.8.0
         with:
           access_token: ${{ github.token }}
-      - uses: actions/checkout@v2
-      - name: Make
+      - name: macos-10-docker2
         run: |
           git clone https://github.com/bitcoincore-dev/stats.bitcoincore.dev
           cd stats.bitcoincore.dev
-          .github/workflows/./install-bitcoin-libs.sh
-          ./autogen.sh
-          ./configure --disable-wallet --disable-tests --disable-bench --disable-docs 
-          make install 
+          make init header run user=root port=1234 verbose=true nocache=true
 
+################################################################################
