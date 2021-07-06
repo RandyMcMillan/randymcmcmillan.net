@@ -5,9 +5,8 @@ name: Self Hosted Workflow
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    paths:
-      - '.github/workflows/self-hosted.yml'
-
+    #    paths:
+    #      - '.github/workflows/self-hosted.yml'
     branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
