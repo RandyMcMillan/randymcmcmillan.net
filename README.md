@@ -2,7 +2,7 @@
 <AUTOMATION>
 <p>
 
-## [![Awesome](https://awesome.re/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/blob/master/sources/awesome.html) [![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml) [![docker.shell](https://github.com/RandyMcMillan/docker.shell/actions/workflows/docker.shell.yml/badge.svg)](https://github.com/RandyMcMillan/docker.shell/actions/workflows/docker.shell.yml)
+## [![Awesome](https://awesome.re/badge.svg)](https://github.com/RandyMcMillan/randymcmillan/blob/master/sources/awesome.md) [![legit](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml/badge.svg)](https://github.com/RandyMcMillan/legit/actions/workflows/automate.yml) [![statoshi.host](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml/badge.svg)](https://github.com/bitcoincore-dev/statoshi.host/actions/workflows/statoshi.host.yml) [![docker.shell](https://github.com/RandyMcMillan/docker.shell/actions/workflows/docker.shell.yml/badge.svg)](https://github.com/RandyMcMillan/docker.shell/actions/workflows/docker.shell.yml)
 
 <CENTER></CENTER>
 
